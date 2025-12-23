@@ -1,0 +1,236 @@
+/* --- VARIABLES GLOBALES --- */
+:root {
+    --primary-color: #1a1a1a;       /* Texto oscuro */
+    --accent-color: #d4af37;        /* Dorado/Gold para detalles */
+    --accent-hover: #b5952f;
+    --bg-color: #f9f9f9;            /* Fondo suave */
+    --white: #ffffff;
+    --text-gray: #666666;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --spacing-container: 1200px;
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll lateral */
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    position: absolute; /* Para que quede sobre el hero */
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo .dot { color: var(--accent-color); font-size: 2rem; line-height: 0; }
+
+.btn-nav {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.btn-nav:hover { border-color: var(--accent-color); }
+
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    align-items: center;
+    padding: 6rem 5% 2rem; /* Padding superior para compensar navbar */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+}
+
+/* Texto del Hero */
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2; /* Por encima de cualquier adorno */
+}
+
+.badge {
+    background-color: rgba(212, 175, 55, 0.1); /* Dorado muy suave */
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive typography */
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-style: italic; /* Toque elegante */
+}
+
+.hero p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+/* Botones */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Indicador de confianza */
+.trust-indicator {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.stars { color: var(--accent-color); letter-spacing: 2px; }
+
+/* Visual (Imagen/Mockup) */
+.hero-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Círculo decorativo de fondo */
+.circle-bg {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.phone-mockup {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); /* Sombra realista */
+    animation: float 6s ease-in-out infinite; /* Animación flotante */
+}
+
+/* --- ANIMACIONES --- */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .hero p { margin: 0 auto 2rem; }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .trust-indicator {
+        justify-content: center;
+    }
+
+    .phone-mockup {
+        max-width: 280px; /* Un poco más chico en celular */
+    }
+  }
+                           
