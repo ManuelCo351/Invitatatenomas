@@ -233,4 +233,135 @@ body {
         max-width: 280px; /* Un poco más chico en celular */
     }
   }
-                           
+/* --- SECCIÓN GENERAL --- */
+.demos-section {
+    padding: 6rem 5%;
+    background-color: var(--white);
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.section-header p {
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- GRID LAYOUT --- */
+.demos-grid {
+    display: grid;
+    /* Esto es Magia: Crea columnas automáticas de mínimo 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2.5rem;
+}
+
+/* --- TARJETA (CARD) --- */
+.demo-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Efecto al pasar el mouse sobre toda la tarjeta */
+.demo-card:hover {
+    transform: translateY(-10px); /* Sube la tarjeta */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12); /* Sombra más fuerte */
+}
+
+/* Contenedor de Imagen */
+.card-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3; /* Mantiene la proporción rectangular siempre */
+    overflow: hidden;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se estire feo */
+    transition: transform 0.5s ease;
+}
+
+.demo-card:hover .card-image-container img {
+    transform: scale(1.05); /* Zoom suave en la imagen */
+}
+
+/* Etiqueta (Boda, XV, etc) */
+.card-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Overlay (Capa oscura con botón) */
+.card-overlay {
+    position: absolute;
+    inset: 0; /* Top, right, bottom, left: 0 */
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Invisible por defecto */
+    transition: opacity 0.3s ease;
+}
+
+.demo-card:hover .card-overlay {
+    opacity: 1; /* Visible al hacer hover */
+}
+
+.btn-demo {
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transform: translateY(20px); /* Empieza un poco más abajo */
+    transition: transform 0.3s ease;
+}
+
+.demo-card:hover .btn-demo {
+    transform: translateY(0); /* Sube a su posición original */
+}
+
+/* Info de la tarjeta */
+.card-info {
+    padding: 1.5rem;
+}
+
+.card-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
