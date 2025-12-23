@@ -439,3 +439,86 @@ body {
     color: var(--text-gray);
     line-height: 1.6;
 }
+/* --- SECCIÓN PASOS --- */
+.steps-section {
+    padding: 6rem 5%;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.steps-container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+    counter-reset: step-counter; /* Inicializa un contador CSS (opcional, pero buena práctica) */
+}
+
+/* --- TARJETA DE PASO --- */
+.step-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+}
+
+/* El Número Grande */
+.step-number {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgba(212, 175, 55, 0.2); /* Dorado muy transparente */
+    line-height: 1;
+    margin-bottom: -1.5rem; /* Hacemos que el título se monte un poco sobre el número */
+    z-index: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.step-card:hover .step-number {
+    transform: scale(1.1); /* Efecto pop al pasar el mouse */
+    color: rgba(212, 175, 55, 0.4); /* Se oscurece un poco */
+}
+
+/* Títulos y Texto */
+.step-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    z-index: 1; /* Para que quede por encima del número */
+    position: relative;
+}
+
+.step-card p {
+    color: var(--text-gray);
+    font-size: 1rem;
+    max-width: 300px; /* Limita el ancho del texto para que no se estire demasiado */
+    margin: 0 auto;
+}
+
+/* --- BOTÓN FINAL DE SECCIÓN --- */
+.steps-cta {
+    margin-top: 2rem;
+}
+
+/* --- LÍNEAS DE CONEXIÓN (Solo Desktop) --- */
+/* Esto dibuja una línea sutil entre pasos si la pantalla es grande */
+@media (min-width: 992px) {
+    .step-card:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 35%; /* Ajustar según la altura de tus números */
+        right: -50px; /* Sale de la tarjeta hacia la derecha */
+        width: 100px; /* Largo de la línea */
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent-color) 0%, transparent 100%);
+        opacity: 0.3;
+        z-index: -1;
+    }
+}
