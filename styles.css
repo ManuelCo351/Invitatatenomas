@@ -683,3 +683,153 @@ body {
         margin-top: 1rem;
     }
 }
+
+/* --- SECCIÓN FAQ --- */
+.faq-section {
+    padding: 6rem 5%;
+    background-color: var(--white);
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.faq-item h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+}
+
+.faq-item p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #1a1a1a; /* Fondo Oscuro */
+    color: #e0e0e0;
+    padding: 5rem 5% 2rem;
+}
+
+.footer-container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 3rem;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Logo en Footer */
+.logo-footer {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+.logo-footer .dot { color: var(--accent-color); }
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.8rem; }
+
+.footer-col a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-col a:hover { color: var(--accent-color); }
+
+/* Redes Sociales */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    color: var(--white);
+}
+.social-link:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- BOTÓN FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000; /* Siempre encima de todo */
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite; /* Animación de latido */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* Animación de latido para llamar la atención */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- AJUSTE MOBILE FOOTER --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+}
